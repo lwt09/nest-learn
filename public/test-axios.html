@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://unpkg.com/axios@0.24.0/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/qs@6.10.2/dist/qs.js"></script>
+  </head>
+  <body>
+    <input type="file" multiple id="inputFile" />
+    <script>
+      async function axiosTest() {
+        const { data: res } = await axios.get('/my-test/params/1');
+        console.log(res, 'params-test');
+
+        const { data: res2 } = await axios.get(
+          '/my-test/queryFind?id=测试',
+          {},
+        );
+        console.log(res2, 'query-test');
+      }
+      //   axiosTest();
+
+      async function fetchTest() {
+        const res = await fetch('/my-test/queryFind?id=测试');
+        const data = await res.text();
+        console.log(data, 'fetch-test');
+      }
+      //   fetchTest();
+
+      async function formUrlEncoded() {
+        const res = await axios.post(
+          '/my-test/postCreate',
+          Qs.stringify({ age: 3, name: 'test' }),
+          {
+            headers: { 'content-type': 'application/x-www-form-urlencoded' },
+          },
+        );
+        console.log(res);
+      }
+
+      //   formUrlEncoded();
+
+      //   测试上传文件!
+      document.querySelector('#inputFile').onchange = async function () {
+        const form = new FormData();
+        form.append('name', 'lwt');
+        let index = 1;
+        for (const file of document.querySelector('#inputFile').files) {
+          form.append(`file${index++}`, file);
+        }
+
+        const res = await axios.post('/my-test/upload', form, {
+          headers: { 'content-type': 'multipart/form-data' },
+        });
+        console.log(res, 'upload-test');
+      };
+    </script>
+  </body>
+</html>
