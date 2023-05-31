@@ -1,0 +1,29 @@
+{
+  // 使用 IntelliSense 了解相关属性。
+  // 悬停以查看现有属性的描述。
+  // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    // 通过调试起直接启动项目 下面会config 会执行 npm run start:dev
+    // 将打印的信息放到 integratedTerminal 中
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "debug nest",
+      "runtimeExecutable": "npm",
+      "args": ["run", "start:dev"],
+      "skipFiles": ["<node_internals>/**"],
+      "console": "integratedTerminal"
+    }
+    // npm run start:debug 后浏览器进入对应接口就进入接口断点
+    // {
+    //     "name": "Attach",
+    //     "port": 9229,
+    //     "request": "attach",
+    //     "skipFiles": [
+    //         "<node_internals>/**"
+    //     ],
+    //     "type": "node"
+    // },
+  ]
+}
