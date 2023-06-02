@@ -4,6 +4,6 @@ import { DebugResourceController } from './debug-resource.controller';
 
 @Module({
   controllers: [DebugResourceController],
-  providers: [DebugResourceService]
+  providers: [DebugResourceService],
 })
 export class DebugResourceModule {}

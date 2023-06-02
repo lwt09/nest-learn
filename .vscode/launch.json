@@ -15,7 +15,7 @@
       "skipFiles": ["<node_internals>/**"],
       "console": "integratedTerminal"
     }
-    // npm run start:debug 后浏览器进入对应接口就进入接口断点
+    // npm run start:debug(普通js文件 node --inspect-brk .\index7.js) 后浏览器进入对应接口就进入接口断点
     // {
     //     "name": "Attach",
     //     "port": 9229,
