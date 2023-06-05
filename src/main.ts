@@ -10,5 +10,9 @@ async function bootstrap() {
     prefix: '/static/',
   });
   await app.listen(3000);
+
+  // setTimeout(() => {
+  //   app.close();
+  // }, 3000);
 }
 bootstrap();

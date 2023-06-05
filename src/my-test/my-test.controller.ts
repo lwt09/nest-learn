@@ -80,4 +80,9 @@ export class MyTestController {
   // remove(@Param('id') id: string) {
   //   return this.myTestService.remove(+id);
   // }
+
+  @Get('test')
+  test() {
+    this.myTestService.test();
+  }
 }
