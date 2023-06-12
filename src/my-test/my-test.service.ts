@@ -5,7 +5,6 @@ import { PeriodGlobalService } from '../period-global/period-global.service';
 
 @Injectable()
 export class MyTestService {
-  constructor(private PeriodGlobalService: PeriodGlobalService) {}
   create(createMyTestDto: CreateMyTestDto) {
     return 'This action adds a new myTest';
   }
@@ -27,7 +26,7 @@ export class MyTestService {
   }
 
   test() {
-    debugger;
-    console.log(this.PeriodGlobalService.getHello());
+    // debugger;
+    // console.log(this.PeriodGlobalService.getHello());
   }
 }
