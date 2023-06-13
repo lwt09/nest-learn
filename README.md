@@ -18,27 +18,28 @@ $ pnpm run start:prod
 ```
 
 ## debug the app
+
 ```bash
 # debug with vscode
 run F5, more detail with ./vscode/launch.json
 
 # debug with chrome
 $ npm run start:debug
-open chrome with  chrome://inspect/ 
+open chrome with  chrome://inspect/
 ```
 
 ## 常用
+
 ### 指令
+
 ```bash
 # 创建模块
 $ nest g resource xxx --no-spec
 
 ```
 
+### 全部 nest 内置装饰器
 
-
-
-### 全部装饰器
 ```shell
 
 @Module： 声明 Nest 模块
@@ -66,4 +67,46 @@ $ nest g resource xxx --no-spec
 @Header：修改响应头
 @Redirect：指定重定向的 url
 @Render：指定渲染用的模版引擎
+```
+
+### AOP
+
+```shell
+# AOP 顺序
+Middleware(最外层) =>
+Guard(判断路由有没有权限访问) =>
+ExceptionFilter(异常都会被 ExceptionFilter 处理，返回不同的响应) =>
+Interceptor(Contoller 前后扩展一些逻辑) =>
+Pipe(对参数做检验和转换)
+```
+
+### 自定义装饰器
+
+```shell
+# 原生 类装饰器
+
+# 属性装饰器 类的属性
+1.原形对象
+2.属性的名称
+
+# 方法装饰器 类的方法
+1.原形对象
+2.方法的名称
+3.属性描述符 value是fn 可写对应writable，可枚举对应enumerable，可配置对应configurable
+
+# 参数装饰器 类的函数内的参数
+1.原形对象
+2.方法的名称
+3.参数的位置从0开始
+```
+
+```shell
+# nest二开后的
+
+# 方法装饰器 类的方法
+1.就是传进来的参数
+
+# 参数装饰器 类的函数内的参数
+1.传进来的参数
+2.ctx(包含req res等)
 ```
