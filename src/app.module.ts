@@ -8,6 +8,7 @@ import { InjectModule } from './inject/inject.module';
 import { SessionModule } from './session/session.module';
 import { DecoratorModule } from './decorator/decorator.module';
 import { ExecutionContextModule } from './execution-context/execution-context.module';
+import { ReflectMetaDataModule } from './reflect-meta-data/reflect-meta-data.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { ExecutionContextModule } from './execution-context/execution-context.mo
     SessionModule,
     DecoratorModule,
     ExecutionContextModule,
+    ReflectMetaDataModule,
     // PeriodGlobalModule,
   ],
   controllers: [AppController],
