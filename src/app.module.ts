@@ -7,6 +7,7 @@ import { InjectModule } from './inject/inject.module';
 // import { PeriodGlobalModule } from './period-global/period-global.module';
 import { SessionModule } from './session/session.module';
 import { DecoratorModule } from './decorator/decorator.module';
+import { ExecutionContextModule } from './execution-context/execution-context.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { DecoratorModule } from './decorator/decorator.module';
     InjectModule,
     SessionModule,
     DecoratorModule,
+    ExecutionContextModule,
     // PeriodGlobalModule,
   ],
   controllers: [AppController],
