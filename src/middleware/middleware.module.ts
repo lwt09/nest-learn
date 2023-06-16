@@ -9,6 +9,6 @@ import { MiddlewareMiddleware } from './middleware.middleware';
 })
 export class MiddlewareModule implements NestModule {
   configure(consumer: import('@nestjs/common').MiddlewareConsumer) {
-    consumer.apply(MiddlewareMiddleware).forRoutes('*');
+    consumer.apply(MiddlewareMiddleware).forRoutes('middleware');
   }
 }

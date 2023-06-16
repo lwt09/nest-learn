@@ -11,6 +11,7 @@ import { ExecutionContextModule } from './execution-context/execution-context.mo
 import { ReflectMetaDataModule } from './reflect-meta-data/reflect-meta-data.module';
 import { DynamicModuleModule } from './dynamic-module/dynamic-module.module';
 import { MiddlewareModule } from './middleware/middleware.module';
+import { InterceptorRxjsModule } from './interceptor-rxjs/interceptor-rxjs.module';
 
 @Module({
   imports: [
@@ -27,6 +28,7 @@ import { MiddlewareModule } from './middleware/middleware.module';
       age: 11,
     }),
     MiddlewareModule,
+    InterceptorRxjsModule,
     // PeriodGlobalModule,
   ],
   controllers: [AppController],
