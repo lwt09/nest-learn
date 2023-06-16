@@ -9,6 +9,7 @@ import { SessionModule } from './session/session.module';
 import { DecoratorModule } from './decorator/decorator.module';
 import { ExecutionContextModule } from './execution-context/execution-context.module';
 import { ReflectMetaDataModule } from './reflect-meta-data/reflect-meta-data.module';
+import { DynamicModuleModule } from './dynamic-module/dynamic-module.module';
 
 @Module({
   imports: [
@@ -19,6 +20,11 @@ import { ReflectMetaDataModule } from './reflect-meta-data/reflect-meta-data.mod
     DecoratorModule,
     ExecutionContextModule,
     ReflectMetaDataModule,
+    // 1. 动态创建 dynamic 模块，并向该模块内传入参数
+    DynamicModuleModule.register({
+      name: 'lwt',
+      age: 11,
+    }),
     // PeriodGlobalModule,
   ],
   controllers: [AppController],

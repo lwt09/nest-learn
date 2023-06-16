@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Controller } from '@nestjs/common';
 import { ReflectMetaDataService } from './reflect-meta-data.service';
 
