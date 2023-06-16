@@ -10,6 +10,7 @@ import { DecoratorModule } from './decorator/decorator.module';
 import { ExecutionContextModule } from './execution-context/execution-context.module';
 import { ReflectMetaDataModule } from './reflect-meta-data/reflect-meta-data.module';
 import { DynamicModuleModule } from './dynamic-module/dynamic-module.module';
+import { MiddlewareModule } from './middleware/middleware.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { DynamicModuleModule } from './dynamic-module/dynamic-module.module';
       name: 'lwt',
       age: 11,
     }),
+    MiddlewareModule,
     // PeriodGlobalModule,
   ],
   controllers: [AppController],

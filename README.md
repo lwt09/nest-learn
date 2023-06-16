@@ -73,11 +73,11 @@ $ nest g resource xxx --no-spec
 
 ```shell
 # AOP 顺序
-Middleware(最外层) =>
+Middleware(最外层) => 可以拿到 use(req: Request, res: Response, next: () => void) => 处理通用逻辑
 Guard(判断路由有没有权限访问) =>
 ExceptionFilter(异常都会被 ExceptionFilter 处理，返回不同的响应) =>
 Interceptor(Contoller 前后扩展一些逻辑) =>
-Pipe(对参数做检验和转换)
+Pipe(对参数做检验和转换) => 可以拿到 ctx, reflect, rxjs => 处理业务逻辑更多一些
 ```
 
 ### 自定义装饰器
