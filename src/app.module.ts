@@ -12,6 +12,7 @@ import { ReflectMetaDataModule } from './reflect-meta-data/reflect-meta-data.mod
 import { DynamicModuleModule } from './dynamic-module/dynamic-module.module';
 import { MiddlewareModule } from './middleware/middleware.module';
 import { InterceptorRxjsModule } from './interceptor-rxjs/interceptor-rxjs.module';
+import { PipeModule } from './pipe/pipe.module';
 
 @Module({
   imports: [
@@ -29,6 +30,7 @@ import { InterceptorRxjsModule } from './interceptor-rxjs/interceptor-rxjs.modul
     }),
     MiddlewareModule,
     InterceptorRxjsModule,
+    PipeModule,
     // PeriodGlobalModule,
   ],
   controllers: [AppController],

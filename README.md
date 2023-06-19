@@ -77,7 +77,7 @@ Middleware(最外层) => 可以拿到 use(req: Request, res: Response, next: () 
 Guard(判断路由有没有权限访问) =>
 ExceptionFilter(异常都会被 ExceptionFilter 处理，返回不同的响应) =>
 Interceptor(Contoller 前后扩展一些逻辑) => 可以拿到 ctx, reflect, rxjs => 处理业务逻辑更多一些
-Pipe(对参数做检验和转换) => 
+Pipe(对参数做检验和转换) =>
 ```
 
 ### 自定义装饰器
@@ -112,5 +112,34 @@ Pipe(对参数做检验和转换) =>
 ```
 
 # reflect-meta-data
-可以理解为nest底层全部注入信息的方式，绑定到对应的类/类的属性方法/参数上
+
+可以理解为 nest 底层全部注入信息的方式，绑定到对应的类/类的属性方法/参数上
 后面可以回头来读，第十三章
+
+# pipe 第十四章
+
+## 常见数据转化 Pipe
+
+```shell
+# 常见 pipe
+1. ParseIntPipe：将字符串转换为整数；
+2. ParseBoolPipe：将字符串转换为布尔值；
+3. ParseArrayPipe：将字符串转换为数组；
+4. ParseUUIDPipe：将字符串转换为 UUID（通用唯一标识符）；
+5. ParseEnumPipe：将字符串转换为枚举类型，并验证枚举值的有效性；
+6. ParseFloatPipe：将字符串转换为浮点数；
+7. DefaultValuePipe：如果输入的值为 undefined 或 null，则将其替换为指定的默认值。
+
+# 验证pipe对应的库
+class-validator class-transformer
+ValidationPipe
+
+# demo
+@Get('test')
+test(@Query('test'), new DefaultValuePipe('我是默认值') test: string){
+    # query 里面没有 test 时候， test默认为 我是默认值
+    return test;
+}
+```
+
+## 校验 pipe
