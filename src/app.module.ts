@@ -14,6 +14,7 @@ import { MiddlewareModule } from './middleware/middleware.module';
 import { InterceptorRxjsModule } from './interceptor-rxjs/interceptor-rxjs.module';
 import { PipeModule } from './pipe/pipe.module';
 import { FileModule } from './file/file.module';
+import { LoggerModule } from './logger/logger.module';
 
 @Module({
   imports: [
@@ -33,6 +34,7 @@ import { FileModule } from './file/file.module';
     InterceptorRxjsModule,
     PipeModule,
     FileModule,
+    LoggerModule,
     // PeriodGlobalModule,
   ],
   controllers: [AppController],

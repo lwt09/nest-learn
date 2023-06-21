@@ -8,6 +8,7 @@ import session from 'express-session';
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule, {
     cors: true,
+    // logger: false,
   });
   app.useStaticAssets(join(__dirname, '..', 'public'), {
     prefix: '/static/',
