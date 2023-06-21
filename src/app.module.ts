@@ -13,6 +13,7 @@ import { DynamicModuleModule } from './dynamic-module/dynamic-module.module';
 import { MiddlewareModule } from './middleware/middleware.module';
 import { InterceptorRxjsModule } from './interceptor-rxjs/interceptor-rxjs.module';
 import { PipeModule } from './pipe/pipe.module';
+import { FileModule } from './file/file.module';
 
 @Module({
   imports: [
@@ -31,6 +32,7 @@ import { PipeModule } from './pipe/pipe.module';
     MiddlewareModule,
     InterceptorRxjsModule,
     PipeModule,
+    FileModule,
     // PeriodGlobalModule,
   ],
   controllers: [AppController],

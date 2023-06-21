@@ -4,6 +4,6 @@ import { PipeController } from './pipe.controller';
 
 @Module({
   controllers: [PipeController],
-  providers: [PipeService]
+  providers: [PipeService],
 })
 export class PipeModule {}

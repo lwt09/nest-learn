@@ -6,7 +6,9 @@ import { join } from 'path';
 import session from 'express-session';
 
 async function bootstrap() {
-  const app = await NestFactory.create<NestExpressApplication>(AppModule);
+  const app = await NestFactory.create<NestExpressApplication>(AppModule, {
+    cors: true,
+  });
   app.useStaticAssets(join(__dirname, '..', 'public'), {
     prefix: '/static/',
   });

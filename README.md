@@ -143,3 +143,7 @@ test(@Query('test'), new DefaultValuePipe('我是默认值') test: string){
 ```
 
 ## 校验 pipe
+
+# 图解 nest
+
+![掘金-小册图](image.png)
