@@ -21,9 +21,14 @@ COPY --from=build-stage /app/dist /app/dist
 
 COPY --from=build-stage /app/package.json /app/package.json
 
+COPY --from=build-stage /app/ecosystem.config.js /app/ecosystem.config.js
+
 # --production 只安装dependencies ，因为不用执行 npm run build ，所以不需要安装非生产阶段的devDependencies
 RUN npm install --production
 
+RUN npm i -g pm2
+
 EXPOSE 3000
 
-CMD [ "node", "./dist/main.js" ]
+# CMD [ "node", "./dist/main.js" ]
+CMD ["pm2-runtime", "start", "ecosystem.config.js"]
