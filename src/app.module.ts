@@ -15,6 +15,7 @@ import { InterceptorRxjsModule } from './interceptor-rxjs/interceptor-rxjs.modul
 import { PipeModule } from './pipe/pipe.module';
 import { FileModule } from './file/file.module';
 import { LoggerModule } from './logger/logger.module';
+import { NestCustomOrmModule } from './nest-custom-orm/nest-custom-orm.module';
 
 @Module({
   imports: [
@@ -35,6 +36,11 @@ import { LoggerModule } from './logger/logger.module';
     PipeModule,
     FileModule,
     LoggerModule,
+    // 1. 传入配置，引入动态module，通过module的export向全局注入 数据库连接池
+    NestCustomOrmModule.forRoot({
+      name: 'lwt',
+      version: 1,
+    }),
     // PeriodGlobalModule,
   ],
   controllers: [AppController],
