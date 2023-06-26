@@ -15,6 +15,9 @@ import { InterceptorRxjsModule } from './interceptor-rxjs/interceptor-rxjs.modul
 import { PipeModule } from './pipe/pipe.module';
 import { FileModule } from './file/file.module';
 import { LoggerModule } from './logger/logger.module';
+import { NestTypeormModule } from './nest-typeorm/nest-typeorm.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { User } from './nest-typeorm/entities/User';
 
 @Module({
   imports: [
@@ -35,6 +38,26 @@ import { LoggerModule } from './logger/logger.module';
     PipeModule,
     FileModule,
     LoggerModule,
+
+    NestTypeormModule,
+    // 1. 全局注入数据库实例， 每个模块可以使用 manager 来操作数据库了
+    TypeOrmModule.forRoot({
+      type: 'mysql',
+      host: 'localhost',
+      port: 3306,
+      username: 'root',
+      password: '123456',
+      database: 'docker',
+      synchronize: true,
+      logging: false,
+      entities: [User],
+      migrations: [],
+      subscribers: [],
+      connectorPackage: 'mysql2',
+      extra: {
+        authPlugin: 'sha256_password',
+      },
+    }),
     // PeriodGlobalModule,
   ],
   controllers: [AppController],
