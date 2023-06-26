@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Global, Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MyTestModule } from './my-test/my-test.module';
@@ -18,7 +18,10 @@ import { LoggerModule } from './logger/logger.module';
 import { NestTypeormModule } from './nest-typeorm/nest-typeorm.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './nest-typeorm/entities/User';
+import { createClient } from 'redis';
+import { NestRedisModule } from './nest-redis/nest-redis.module';
 
+@Global()
 @Module({
   imports: [
     MyTestModule,
@@ -58,9 +61,27 @@ import { User } from './nest-typeorm/entities/User';
         authPlugin: 'sha256_password',
       },
     }),
+    NestRedisModule,
     // PeriodGlobalModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [
+    AppService,
+    // 1. 注入 redis 客户端实例 并全局导出
+    {
+      provide: 'REDIDS_CONNECTION',
+      useFactory: async () => {
+        const client = createClient({
+          socket: {
+            host: 'localhost',
+            port: 6379,
+          },
+        });
+        await client.connect();
+        return client;
+      },
+    },
+  ],
+  exports: ['REDIDS_CONNECTION'],
 })
 export class AppModule {}
