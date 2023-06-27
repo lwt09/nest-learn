@@ -20,6 +20,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './nest-typeorm/entities/User';
 import { createClient } from 'redis';
 import { NestRedisModule } from './nest-redis/nest-redis.module';
+import { JwtModule } from '@nestjs/jwt';
+import { JwtTokenModule } from './jwt-token/jwt-token.module';
 
 @Global()
 @Module({
@@ -63,6 +65,17 @@ import { NestRedisModule } from './nest-redis/nest-redis.module';
     }),
     NestRedisModule,
     // PeriodGlobalModule,
+
+    // jwt 0. 注入 jwt 模块
+    JwtModule.register({
+      global: true,
+      secret: 'lwt',
+      signOptions: {
+        // 7天过期
+        expiresIn: '7d',
+      },
+    }),
+    JwtTokenModule,
   ],
   controllers: [AppController],
   providers: [
