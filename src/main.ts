@@ -21,6 +21,7 @@ async function bootstrap() {
         maxAge: 99999999,
       },
       name: 'lwt.sid',
+      saveUninitialized: false,
     }),
   );
   await app.listen(3000);
