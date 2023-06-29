@@ -17,11 +17,13 @@ import { FileModule } from './file/file.module';
 import { LoggerModule } from './logger/logger.module';
 import { NestTypeormModule } from './nest-typeorm/nest-typeorm.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { User } from './nest-typeorm/entities/User';
+// import { User } from './nest-typeorm/entities/User';
 import { createClient } from 'redis';
 import { NestRedisModule } from './nest-redis/nest-redis.module';
 import { JwtModule } from '@nestjs/jwt';
 import { JwtTokenModule } from './jwt-token/jwt-token.module';
+import { UserModule } from './user/user.module';
+import { User } from './user/entities/user.entity';
 
 @Global()
 @Module({
@@ -52,7 +54,7 @@ import { JwtTokenModule } from './jwt-token/jwt-token.module';
       port: 3306,
       username: 'root',
       password: '123456',
-      database: 'docker',
+      database: 'nest_learn',
       synchronize: true,
       logging: false,
       entities: [User],
@@ -76,6 +78,7 @@ import { JwtTokenModule } from './jwt-token/jwt-token.module';
       },
     }),
     JwtTokenModule,
+    UserModule,
   ],
   controllers: [AppController],
   providers: [

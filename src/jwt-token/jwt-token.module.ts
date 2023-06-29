@@ -4,6 +4,6 @@ import { JwtTokenController } from './jwt-token.controller';
 
 @Module({
   controllers: [JwtTokenController],
-  providers: [JwtTokenService]
+  providers: [JwtTokenService],
 })
 export class JwtTokenModule {}

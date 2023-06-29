@@ -14,6 +14,7 @@ import { Response } from 'express';
 export class JwtTokenController {
   constructor(private readonly jwtTokenService: JwtTokenService) {}
 
+  // jwt 2. 直接引入
   @Inject(JwtService)
   private readonly jwt: JwtService;
 
