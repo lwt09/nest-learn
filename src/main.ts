@@ -6,6 +6,7 @@ import { join } from 'path';
 import session from 'express-session';
 
 async function bootstrap() {
+  console.log(process.env.NODE_ENV, 'process.env.NODE_ENV');
   const app = await NestFactory.create<NestExpressApplication>(AppModule, {
     cors: true,
     // logger: false,
