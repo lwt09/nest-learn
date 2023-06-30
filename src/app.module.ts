@@ -25,7 +25,8 @@ import { JwtTokenModule } from './jwt-token/jwt-token.module';
 import { UserModule } from './user/user.module';
 import { User } from './user/entities/user.entity';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { devConfig, proConfig } from './config/dev.config';
+import { devConfig } from './config/dev.config';
+import { proConfig } from './config/pro.config';
 
 @Global()
 @Module({

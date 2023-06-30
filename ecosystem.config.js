@@ -5,6 +5,9 @@ module.exports = {
       watch: '.',
       max_memory_restart: '1G',
       instances: 'max',
+      env: {
+        NODE_ENV: 'production',
+      },
     },
   ],
 

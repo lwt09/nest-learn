@@ -1,10 +1,10 @@
 import { IEnvConfig } from './type';
 
-export async function devConfig(): Promise<IEnvConfig> {
+export async function proConfig(): Promise<IEnvConfig> {
   return {
     database: {
       type: 'mysql',
-      host: 'localhost',
+      host: '192.168.1.243',
       port: 3306,
       username: 'root',
       password: '123456',
@@ -21,7 +21,7 @@ export async function devConfig(): Promise<IEnvConfig> {
     },
     redis: {
       socket: {
-        host: 'localhost',
+        host: '192.168.1.243',
         port: 6379,
       },
     },
